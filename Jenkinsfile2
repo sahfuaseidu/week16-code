@@ -10,7 +10,6 @@ pipeline {
                 sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sahfuaseidu_week16-code'
             }
         }
-        }
         stage('all maven command'){
             steps{
                 sh 'mvn clean test compile install package'
