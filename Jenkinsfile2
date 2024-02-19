@@ -5,6 +5,9 @@ pipeline {
     }
     stages{
         stage('sonarqube scan'){
+agent {
+        docker { image 'node:20.11.1-alpine3.19' }
+    }
             steps{
                 withSonarQubeEnv('sonarserver'){ 
               sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kserge2001_week16-code'
